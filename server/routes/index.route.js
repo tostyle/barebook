@@ -4,7 +4,7 @@ const userRoutes = require('./user.route')
 const router = express.Router()
 
 /** GET /health-check - Check service health */
-router.get('/ping', (req, res) => {
+router.get('/', (req, res) => {
   res.send('pong')
 })
 

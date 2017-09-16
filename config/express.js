@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const compress = require('compression')
 const methodOverride = require('method-override')
+const path = require('path')
 const cors = require('cors')
 const httpStatus = require('http-status')
 const expressWinston = require('express-winston')
@@ -11,6 +12,7 @@ const expressValidation = require('express-validation')
 const helmet = require('helmet')
 const winstonInstance = require('./winston')
 const routes = require('../server/routes/index.route')
+const webRoutes = require('../server/routes/web.route')
 const config = require('./config')
 const APIError = require('../server/helpers/APIError')
 
@@ -25,6 +27,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '../server/templates'))
 
 app.use(cookieParser())
 app.use(compress())
@@ -49,6 +54,7 @@ if (config.env === 'development') {
 }
 
 // mount all routes on /api path
+app.use('/', webRoutes)
 app.use('/api', routes)
 
 // if error is not an instanceOf APIError, convert it.
