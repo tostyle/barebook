@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:zanroo/template-api.git"
+    "url": "git@github.com:tostyle"
   },
   "keywords": [
     "express",
