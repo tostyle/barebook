@@ -11,10 +11,10 @@ const Schema = new mongoose.Schema({
     type: String
   },
   package: {
-    type: mongoose.Schema.Types.ObjectId
+    type: String
   },
   promotion: {
-    type: mongoose.Schema.Types.ObjectId
+    type: String
   },
   user_id: {
     type: mongoose.Schema.Types.ObjectId

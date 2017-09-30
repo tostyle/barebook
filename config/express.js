@@ -31,6 +31,8 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '../server/templates'))
 
+app.use(express.static('public'))
+
 app.use(cookieParser())
 app.use(compress())
 app.use(methodOverride())

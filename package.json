@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "start:watch": "nodemon index.js",
     "start:debug": "cross-env DEBUG=template-api:* yarn start",
     "lint": "standard",
     "lint:watch": "npm run lint -- --watch",
