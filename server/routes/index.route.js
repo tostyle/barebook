@@ -7,6 +7,7 @@ const packageRoutes = require('./package.route')
 const sizeRoutes = require('./size.route')
 const coverPageRoutes = require('./coverPage.route')
 const paperTypeRoutes = require('./paperType.route')
+const uploadRoutes = require('./upload.route')
 
 const router = express.Router()
 
@@ -14,6 +15,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   res.send('pong')
 })
+
 
 router.post('/pdf', (req, res) => {
 	var file = fs.createReadStream('./storage/Resort.pdf');
@@ -46,5 +48,6 @@ router.use('/package', packageRoutes)
 router.use('/size', sizeRoutes)
 router.use('/cover_page', coverPageRoutes)
 router.use('/paper_type', paperTypeRoutes)
+router.use('/upload', uploadRoutes)
 
 module.exports = router
