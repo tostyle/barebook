@@ -16,7 +16,6 @@ const storage = multer.diskStorage({
     cb(null, dir)
   },
   filename: function (req, file, cb) {
-    console.log('uploadfile>>>>')
     crypto.pseudoRandomBytes(16, function (err, raw) {
       cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
     });
@@ -25,13 +24,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/:accountId', upload.single('file'), (req, res, next) => {
-  console.log(req.file)
-  res.status(204).end()
+  console.log('>>>>>>>>>',req.file)
+  res.send({ fileName: req.file.filename })
 })
 
 router.post('/:accountId/multiple', upload.array('files', 20), (req, res, next) => {
-  console.log(req.files)
-  res.status(204).end()
+  console.log('<><><><><><><><<><>',req.files)
+  res.send(req.files)
 })
 
 module.exports = router

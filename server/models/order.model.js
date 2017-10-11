@@ -41,7 +41,10 @@ const Schema = new mongoose.Schema({
     type: Number
   },
   color_page: {
-    type: Number
+    type: Number,
+  },
+  color: {
+    color_pages: [Number]
   },
   files: {
     front_cover: {
@@ -51,6 +54,9 @@ const Schema = new mongoose.Schema({
       type: String
     },
     spine: {
+      type: String
+    },
+    book: {
       type: String
     }
   },
