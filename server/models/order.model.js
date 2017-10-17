@@ -26,7 +26,9 @@ const Schema = new mongoose.Schema({
     type: Number
   },
   size: {
-    type: String
+    _id: { type: mongoose.Schema.Types.ObjectId },
+    name: { type: String },
+    detail: { type: String }
   },
   cover_type: {
     type: String

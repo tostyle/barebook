@@ -8,6 +8,7 @@ const sizeRoutes = require('./size.route')
 const coverPageRoutes = require('./coverPage.route')
 const paperTypeRoutes = require('./paperType.route')
 const uploadRoutes = require('./upload.route')
+const orderRoutes = require('./order.route')
 
 const router = express.Router()
 
@@ -49,5 +50,6 @@ router.use('/size', sizeRoutes)
 router.use('/cover_page', coverPageRoutes)
 router.use('/paper_type', paperTypeRoutes)
 router.use('/upload', uploadRoutes)
+router.use('/orders', orderRoutes)
 
 module.exports = router
